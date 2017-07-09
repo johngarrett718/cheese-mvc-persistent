@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<!--List of Menus-->
+<table class="table">
+
+    <tr th:each="menu : ${menus}">
+        <td th:text="${menu.name}"></td>
+        <a th:href="@{/menu/view/(column=${menu.id})}" th:text="${menu.name}"></a>
+    </tr>
+</table>
+
+
+<!--Link to Add Menu-->
+
+
+<!--<p th:unless="${cheeses} and ${cheeses.size()}">no cheese :(</p>-->
+
+
+<!--<table class="table">-->
+
+<!--<tr>-->
+<!--<th>Name</th>-->
+<!--<th>Description</th>-->
+<!--<th>Category</th>-->
+<!--</tr>-->
+
+<!--<tr th:each="cheese : ${cheeses}">-->
+<!--<td th:text="${cheese.name}"></td>-->
+<!--<td th:text="${cheese.description}"></td>-->
+<!--<td th:text="${cheese.category.name}"></td>-->
+<!--</tr>-->
+
+<!--</table>-->
+
+</body>
+</html>
