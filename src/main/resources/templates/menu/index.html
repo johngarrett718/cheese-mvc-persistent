@@ -9,6 +9,8 @@
 <nav th:replace="fragments :: navigation"></nav>
 
 <!--List of Menus-->
+<p th:unless="${menus} and ${menus.size()}">no menus :(</p>
+
 <table class="table">
 
     <tr th:each="menu : ${menus}">
@@ -17,28 +19,11 @@
     </tr>
 </table>
 
+<a th:href="@{/menu/add}">Please add a Menu</a>
+
 
 <!--Link to Add Menu-->
 
-
-<!--<p th:unless="${cheeses} and ${cheeses.size()}">no cheese :(</p>-->
-
-
-<!--<table class="table">-->
-
-<!--<tr>-->
-<!--<th>Name</th>-->
-<!--<th>Description</th>-->
-<!--<th>Category</th>-->
-<!--</tr>-->
-
-<!--<tr th:each="cheese : ${cheeses}">-->
-<!--<td th:text="${cheese.name}"></td>-->
-<!--<td th:text="${cheese.description}"></td>-->
-<!--<td th:text="${cheese.category.name}"></td>-->
-<!--</tr>-->
-
-<!--</table>-->
 
 </body>
 </html>
