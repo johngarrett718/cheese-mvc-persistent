@@ -28,6 +28,7 @@ public class MenuController {
     @RequestMapping(value = "")
     public String index(Model model) {
         model.addAttribute("menus", menuDao.findAll());
+        model.addAttribute("title", "Menus");
         return "menu/index";
     }
 
