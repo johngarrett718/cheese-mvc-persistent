@@ -1,5 +1,6 @@
 package org.launchcode.controllers;
 
+import org.launchcode.models.Cheese;
 import org.launchcode.models.Menu;
 import org.launchcode.models.data.CheeseDao;
 import org.launchcode.models.data.MenuDao;
@@ -69,5 +70,19 @@ public class MenuController {
         return "menu/add-item";
     }
 
+    @RequestMapping(value = "add-item", method = RequestMethod.POST)
+    public String addItem(Model model, @ModelAttribute @Valid AddMenuItemForm form, Errors errors) {
+        if (errors.hasErrors()) {
+            model.addAttribute("form", form);
+            return "menu/add-item";
+        }
+
+        Cheese newCheese = cheeseDao.findOne(form.getCheeseId());
+        Menu newMenu = menuDao.findOne(form.getMenuId());
+        newMenu.addItem(newCheese);
+        menuDao.save(newMenu);
+
+        return "redirect:/menu/view/" + newMenu.getId();
+    }
 }
 
