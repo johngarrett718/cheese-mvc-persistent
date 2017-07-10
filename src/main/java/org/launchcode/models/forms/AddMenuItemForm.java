@@ -7,15 +7,15 @@ import javax.validation.constraints.NotNull;
 
 public class AddMenuItemForm {
 
-    private Menu menu;
-
-    private Iterable<Cheese> cheeses;
-
     @NotNull
     private int menuId;
 
     @NotNull
     private int cheeseId;
+
+    private Iterable<Cheese> cheeses;
+
+    private Menu menu;
 
     public AddMenuItemForm(){}
 
